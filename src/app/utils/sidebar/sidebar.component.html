@@ -1,0 +1,29 @@
+<div class="main-sidebar sidebar-style-2">
+  <aside id="sidebar-wrapper">
+    <div class="sidebar-brand">
+      <img src="../assets/img/logo.svg">
+    </div>
+    <div class="sidebar-brand sidebar-brand-sm">
+      <img src="../assets/img/logo-min.svg">
+    </div>
+    <ul class="sidebar-menu mt-4">
+
+      <li *ngFor="let route of routes" [ngClass]="{'active': isRouteActive(route), 'dropdown' : route.children}">
+        <a *ngIf="route.path" routerLink="{{route.path}}" class="nav-link" data-toggle="dropdown" [ngClass]="{'has-dropdown' : route.children}">
+          <i class="fas {{route.icon}}"></i><span>{{route.name}}</span></a>
+        <a *ngIf="!route.path" class="nav-link" data-toggle="dropdown" [ngClass]="{'has-dropdown' : route.children}">
+          <i class="fas {{route.icon}}"></i><span>{{route.name}}</span></a>
+        <ul class="dropdown-menu" *ngIf="route.children">
+          <li *ngFor="let subroute of route.children" [ngClass]="{'active': isRouteActive(subroute)}"><a
+              class="nav-link" routerLink="{{subroute.path}}">{{subroute.name}}</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
+      <a href="https://getstisla.com/docs" class="btn btn-primary btn-lg btn-block btn-icon-split">
+        <i class="fas fa-rocket"></i> Documentation
+      </a>
+    </div>
+  </aside>
+</div>

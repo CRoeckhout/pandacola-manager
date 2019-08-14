@@ -1,0 +1,7 @@
+.sidebar-brand img {
+    width: 100px;
+}
+
+.sidebar-brand:nth-child(2) img {
+    width: 30px;
+}
